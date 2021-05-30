@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import './App.css';
 
-function App() {
+const { useState, useEffect } = React
+
+const App = () => {
+  const [meme, setMeme] = useState('')
+  const [isFetchingMeme, setIsFetchMeme] = useState(true)
+  
+  useEffect(() => {
+    console.log({ isFetchingMeme, meme })
+  }, [isFetchingMeme, meme])
+  
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch('https://some-random-api.ml/meme')
+      const data = await response.json()
+      const { image } = data
+      setMeme(image)
+      setIsFetchMeme(false)
+    }
+    getData()
+  }, [])
+  
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="rainbow-text">
+
+      <h1>Random Meme Generator</h1>
+      <p><button onClick={refreshPage}>Generate more!</button></p>
+      {isFetchingMeme ? <p>Generating...</p> : 
+      <img 
+      src={meme}
+      alt="random meme"
+      />}
+      
     </div>
-  );
+  )
 }
+
 
 export default App;
