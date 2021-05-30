@@ -1,6 +1,11 @@
 # Demo
 https://meme-justinrque-site.netlify.app/
 
+# Description
+Utilizes a JSON API for a random meme scraped from reddit.
+
+API Link : https://meme-api.herokuapp.com/gimme
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
