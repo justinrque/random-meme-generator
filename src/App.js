@@ -1,45 +1,37 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 import './App.css';
+import RandomMemeApp from './RandomMemeApp';
+import MemeGenerator from './MemeGenerator';
+import ReactDOM from 'react-dom';
 
-const { useState, useEffect } = React
-
-const App = () => {
-  const [meme, setMeme] = useState('')
-  const [isFetchingMeme, setIsFetchMeme] = useState(true)
-  
-  useEffect(() => {
-    console.log({ isFetchingMeme, meme })
-  }, [isFetchingMeme, meme])
-  
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch('https://some-random-api.ml/meme')
-      const data = await response.json()
-      const { image } = data
-      setMeme(image)
-      setIsFetchMeme(false)
-    }
-    getData()
-  }, [])
-  
-  function refreshPage() {
-    window.location.reload(false);
+class App extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  return (
-    <div class="rainbow-text">
+  handleClick =() => {
+    ReactDOM.render(<RandomMemeApp />, document.getElementById('root'))
+  }
 
-      <h1>Random Meme Generator</h1>
-      <p><button onClick={refreshPage}>Generate more!</button></p>
-      {isFetchingMeme ? <p>Generating...</p> : 
-      <img 
-      src={meme}
-      alt="random meme"
-      />}
-      
-    </div>
-  )
+  handleClick2 = () => {
+    ReactDOM.render(<MemeGenerator />, document.getElementById('root'))
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1 class="rainbow-text">
+          HOMEPAGE FOR MEMES
+        </h1>
+        <button id="button-generate" onClick = {this.handleClick}>
+          Generate Meme
+        </button>
+        <button id="button-generate" onClick = {this.handleClick2}>
+          DIY MEME
+        </button>
+      </div>
+    );
+  }
 }
 
 

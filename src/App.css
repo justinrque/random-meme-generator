@@ -4,27 +4,265 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.content {
-  color: rgb(60, 60, 60)
-}
-
-btn-generate{
-  background-color: lightgrey;
+button{
+  background-color: whitesmoke;
+  -webkit-text-fill-color: blue;
   color: blue;
 }
 
-.rainbow-text {
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  
+#button-generate {
+  border: 3px rgb(221, 210, 210) solid;
+  font-family: VT323, monospace;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: white;
+  background: whitesmoke;
 }
+
+#button-generate:hover {
+  background: lightblue;
+}
+
+#button-return {
+  border: 3px rgb(221, 210, 210) solid;
+  font-family: VT323, monospace;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: white;
+  background: whitesmoke;
+}
+
+#button-return:hover {
+  background: red;
+}
+
+h1{
+  background-color: black;
+  color: whitesmoke
+}
+
 img {
-  position: relative;
-  width: 50%;
   margin: auto;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  /* width: 50%;
+  height: auto; */
+  border: 2px solid black;
+  height: 80%;
+  width: 70%;
+}
+
+.container {
+  --border-width: 30px;
+  -webkit-text-fill-color: whitesmoke;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 600px;
+  font-family: Lato, sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: white;
+  
+  border-radius: var(--border-width);
+  background-size: 200% 200%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 200% 200%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+
+    
+  
+}
+
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+
+.content {
+  color: rgb(10, 5, 5)
+}
+
+
+.rainbow-text {
+  animation: rainbow-text 2.5s linear;
+  animation-iteration-count: infinite;
+  font-size: 50px;
+}
+
+/* 
+.rainbow-text {background-image: repeating-linear-gradient(
+  45deg
+  , violet, indigo, blue, green, yellow, orange, red, violet);
+      text-align: center;
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 24px;
+      animation: rainbow 8s ease infinite;
+  } */
+
+
+@keyframes rainbow-text{
+  100%,0%{
+    color: rgb(255,0,0);
+  }
+  8%{
+    color: rgb(255,127,0);
+  }
+  16%{
+    color: rgb(255,255,0);
+  }
+  25%{
+    color: rgb(127,255,0);
+  }
+  33%{
+    color: rgb(0,255,0);
+  }
+  41%{
+    color: rgb(0,255,127);
+  }
+  50%{
+    color: rgb(0,255,255);
+  }
+  58%{
+    color: rgb(0,127,255);
+  }
+  66%{
+    color: rgb(0,0,255);
+  }
+  75%{
+    color: rgb(127,0,255);
+  }
+  83%{
+    color: rgb(255,0,255);
+  }
+  91%{
+    color: rgb(255,0,127);
+  }
+}
+
+  .meme {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .meme > img {
+    width: 100%;
+    max-width: 40em;
+    max-height: 40em;
+    margin-bottom: 1.5em;
+    background: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .meme > h2 {
+    position: absolute;
+    max-width: 36em;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0.3em 0;
+    padding: 0 0px;
+    font-family: impact, sans-serif;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+      -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+      2px 2px 5px #000;
+  }
+  
+  .meme > .bottom {
+    bottom: 0.9em;
+  }
+  
+  .meme > .top {
+    top: -0.2em;
+    position: absolute;
+  }
+  
+  .meme-form {
+    width: 90%;
+    margin: 1.4em 0em 1em 1.4em;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .meme-form > input {
+    border: 1.5px solid;
+    border-radius: 5px;
+    margin: 2em;
+    display: block;
+    width: 50%;
+    min-width: 20em;
+    height: 3em;
+  }
+  
+  .meme-form > #button-generate {
+    border: 3px rgb(221, 210, 210) solid;
+    font-family: VT323, monospace;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: white;
+    background: whitesmoke;
+  }
+
+  .meme-form > #button-generate:hover {
+    background: green;
+  }
+
+  .meme-form > #button-return {
+    border: 3px rgb(221, 210, 210) solid;
+    font-family: VT323, monospace;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: white;
+    background: whitesmoke;
+  }
+
+  .meme-form > #button-return:hover {
+    background: red;
+  }
+  
+.container-diy {
+  -webkit-text-fill-color: whitesmoke;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 600px;
+  text-transform: uppercase;
+  color: white;
+
 }
